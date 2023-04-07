@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Embed</title>   
+</head>
+<body>
+  <h1>YouTube Embed</h1>
+  <form id="youtube-form">
+    <label for="youtube-link">YouTube Link:</label>
+    <input type="text" id="youtube-link" name="youtube-link">
+    <button type="submit">Embed</button>
+  </form>
+  <div id="embed-container"></div>
+  <script>
+    document.getElementById("youtube-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+      var youtubeLink = document.getElementById("youtube-link").value;
+      var embedContainer = document.getElementById("embed-container");
+      var embedCode = getYouTubeEmbedCode(youtubeLink);
+      embedContainer.innerHTML = embedCode;
+    });
+    
+    function getYouTubeEmbedCode(youtubeLink) {
+      // Extract video ID from YouTube link
+      var videoId = extractYouTubeVideoId(youtubeLink);
+      // Generate YouTube embed code
+      var embedCode = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/' + videoId + '" frameborder="0" allowfullscreen></iframe>';
+      return embedCode;
+    }
+    
+    function extractYouTubeVideoId(youtubeLink) {
+      // Extract video ID from YouTube link
+      var videoId = "";
+      // Logic to extract video ID from YouTube link, e.g., using regular expressions or string manipulation
+      // Example: Extract video ID from YouTube link format "https://www.youtube.com/watch?v=VIDEO_ID"
+      var match = youtubeLink.match(/(?:\?v=|\/embed\/)([a-zA-Z0-9_-]{11})/);
+      if (match) {
+        videoId = match[1];
+      }
+      return videoId;
+    }
+  </script> 
+</body>
+</html>
