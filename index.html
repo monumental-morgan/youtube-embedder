@@ -3,12 +3,50 @@
 <head>
   <title>YouTube Embed</title>   
 </head>
+<style>
+  body { 
+    background-color: black;
+  }
+
+.head-format {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color:white;
+}
+
+.link-format {
+  background-color: white;
+  border: none;
+  height: 30px;
+  width: 220px;
+  border-radius: 13px;
+
+}
+
+.link-format:hover {
+  background-color: rgb(230,230,230);
+}
+
+.button-format {
+  background-color: rgb(179, 0, 0);
+  color:white;
+  border: none;
+  height: 30px;
+  width: 65px;
+  border-radius: 13px;
+  cursor: pointer;
+}
+
+.button-format:hover {
+  background-color: rgb(77,0,0);
+}
+
+</style>
 <body>
-  <h1>YouTube Embed</h1>
+  <h1 class="head-format">YouTube Embed</h1>
   <form id="youtube-form">
-    <label for="youtube-link">YouTube Link:</label>
-    <input type="text" id="youtube-link" name="youtube-link">
-    <button type="submit">Embed</button>
+    <input class="link-format" type="text" placeholder="  Youtube link" id="youtube-link" name="youtube-link">
+    <button class="button-format" type="submit">Embed</button>
   </form>
   <div id="embed-container"></div>
   <script>
